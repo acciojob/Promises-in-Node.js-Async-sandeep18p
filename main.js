@@ -1,6 +1,9 @@
 const fs = require('fs');
 
+
 const filePath = process.argv[2];
+console.log("file",filePath);
+
 
 function readFileAsync(filePath) {
   return new Promise((resolve, reject) => {
@@ -24,7 +27,7 @@ function modifyText(text) {
       const reversedText = upperCaseText.split('').reverse().join('');
       resolve(reversedText);
     } catch (error) {
-      reject(`Error modifying text: ${error}`);
+      reject(`Error reading file ${filePath}: ${error.message}`);
     }
   });
 }
